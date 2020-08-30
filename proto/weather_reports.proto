@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package weather_reports;
+
+message WeatherStationReport {
+  Location location = 1;
+  SensorData sensors = 2;
+  string timestamp = 3;
+}
+
+message SensorData {
+  float temp = 1;
+  float humidity = 2;
+  float pressure = 3;
+  float light = 4;
+  Particulates particulate = 5;
+  Gases gases = 6;
+  Noise noise = 7;
+}
+
+message Location {
+  string name = 1;
+  LatLng geo = 2;
+
+  message LatLng {
+    float lat = 1;
+    float lng = 2;
+  }
+}
+
+message Noise {
+  float low = 1;
+  float mid = 2;
+  float high = 3;
+  float amp = 4;
+}
+
+message Particulates {
+  float pm1 = 1;
+  float pm25 = 2;
+  float pm10 = 3;
+}
+
+message Gases {
+  float oxidising = 1;
+  float reducing = 2;
+  float nh3 = 3;
+}
+
+service WeatherReportAggregator {
+  rpc SendReport (WeatherStationReport) returns (ReportReceived);
+}
+
+message ReportReceived {}

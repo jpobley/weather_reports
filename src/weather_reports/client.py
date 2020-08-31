@@ -22,7 +22,7 @@ def run():
         class_name = 'EnviroPlusClient'
 
     client_module = importlib.import_module(f'weather_reports.device_clients.{module}')
-    client_class = getattr(client_module, client_class)
+    client_class = getattr(client_module, class_name)
 
     client = client_class()
 

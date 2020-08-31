@@ -5,7 +5,6 @@ from sense_hat import SenseHat
 
 from .base_client import BaseClient
 import weather_reports_pb2
-import weather_reports_pb2_grpc
 
 
 class SenseHatClient(BaseClient):

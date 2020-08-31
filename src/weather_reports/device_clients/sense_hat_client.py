@@ -29,3 +29,12 @@ class SenseHatClient(BaseClient):
             )
 
         return report
+
+
+def example():
+    client = SenseHatClient()
+
+    print(client.report)
+
+if __name__ == '__main__':
+    example()

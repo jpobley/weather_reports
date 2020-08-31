@@ -16,11 +16,11 @@ class SenseHatClient(BaseClient):
         location = weather_reports_pb2.Location(
                 name = 'Ohana',
                 geo = weather_reports_pb2.Location.LatLng(lat=37.4666168, lng=122.2211412),
-                timestamp = self.now
             )
 
         report = weather_reports_pb2.WeatherStationReport(
                 location = location,
+                timestamp = self.now,
                 sensors = weather_reports_pb2.SensorData(
                         temp = self.hat.temp,
                         humidity = self.hat.humidity,

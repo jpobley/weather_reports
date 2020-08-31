@@ -15,7 +15,7 @@ source .venv/bin/activate
 echo 'Installing requirements.txt...'
 pip install -r requirements.txt
 
-echo 'Building protbufs'
+echo 'Building protbufs...'
 python -m grpc_tools.protoc \
     -I ./proto \
     --python_out=$build_dir \
@@ -24,6 +24,7 @@ python -m grpc_tools.protoc \
 
 pushd $build_dir
 
+echo 'Installing weather_reports module...'
 python setup.py install
 
 popd
